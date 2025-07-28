@@ -1,0 +1,4 @@
+commands:
+  net:
+    description: Run network tools
+    usage: "stat"

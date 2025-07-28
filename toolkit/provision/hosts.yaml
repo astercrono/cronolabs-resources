@@ -1,0 +1,21 @@
+cronbook:
+  hostname: localhost
+  templates:
+    - fedora/baseline
+    - fedora/workstation
+cronbox:
+  hostname: localhost
+  templates:
+    - fedora/baseline
+    - fedora/workstation
+komo:
+  hostname: komo.lambda.int.cronolabs.net
+  templates:
+    - debian/baseline
+    - debian/docker
+    - debian/komodo
+build:
+  hostname: 192.168.1.21
+  templates:
+    - debian/baseline
+    - debian/docker
