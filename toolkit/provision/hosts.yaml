@@ -1,21 +1,116 @@
 cronbook:
+  description: Personal Thinkpad
   hostname: localhost
+  username: crono 
+  type: bare
   templates:
     - fedora/baseline
     - fedora/workstation
 cronbox:
-  hostname: localhost
+  description: Sunshine Game Streaming
+  hostname: 192.168.1.130
+  username: crono
+  type: bare
   templates:
     - fedora/baseline
     - fedora/workstation
+db:
+  description: Databases
+  hostname: 192.168.1.105
+  username: root
+  parent: wizard2
+  type: lxc
+  templates: 
+    - debian/baseline
+    - debian/docker
+    - debian/komodo-periphery
+forge:
+  description: Proxmox Node. Optiplex  3020
+  hostname: 192.168.1.2
+  username: root
+  type: hypervisor
+  templates: 
+game1:
+  description: Game Hosting
+  hostname: 192.168.6.100
+  username: root
+  parent: halcyon
+  type: lxc
+  templates: 
+    - debian/baseline
+    - debian/docker
+    - debian/komodo-periphery
+halcyon:
+  description: Proxmox Node (HP EliteDesk)
+  hostname: 192.168.6.222
+  username: root
+  type: hypervisor
+  templates: 
 komo:
-  hostname: komo.lambda.int.cronolabs.net
+  hostname: 192.168.1.103
+  description: Container Build and Deployment
+  username: root
+  parent: wizard1
+  type: lxc
   templates:
     - debian/baseline
     - debian/docker
     - debian/komodo
-build:
-  hostname: 192.168.1.21
-  templates:
+media:
+  hostname: 192.168.6.101
+  description: Media Streaming
+  username: root
+  parent: orbital
+  type: lxc
+  templates: 
     - debian/baseline
     - debian/docker
+    - debian/komodo-periphery
+net:
+  hostname: 192.168.1.100
+  description: Network Utilities
+  username: root
+  parent: forge
+  type: lxc
+  templates: 
+    - debian/baseline
+    - debian/docker
+    - debian/komodo-periphery
+game2:
+  hostname: 192.168.1.106
+  description: Game Hosting
+  username: root
+  parent: wizard2
+  type: lxc
+  templates: 
+    - debian/baseline
+    - debian/docker
+    - debian/komodo-periphery
+orbital:
+  description: Proxmox Node (HP ProDesk)
+  hostname: 192.168.1.27
+  username: root
+  type: hypervisor
+  templates: 
+rcv:
+  hostname: 192.168.1.104
+  description: Torrenting
+  username: root
+  parent: wizard1
+  type: lxc
+  templates: 
+    - debian/baseline
+    - debian/docker
+    - debian/komodo-periphery
+wizard1:
+  description: Proxmox Node (Optiplex 3050)
+  hostname: 192.168.1.242
+  username: root
+  type: hypervisor
+  templates: 
+wizard2:
+  description: Proxmox Node (Optiplex 3050)
+  hostname: 192.168.1.30
+  username: root
+  type: hypervisor
+  templates: 

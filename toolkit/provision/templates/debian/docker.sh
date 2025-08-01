@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -o pipefail
+
 if ! command -v docker &>/dev/null; then
 	# Add Docker's official GPG key:
 	sudo apt-get update -y
@@ -21,13 +24,13 @@ if ! command -v docker &>/dev/null; then
 	sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 	# Enable log rotation
-	cat <<EOF >/etc/docker/daemon.json
-	{
+	cat >"/etc/docker/daemon.json" <<EOF
+{
 	"log-driver": "json-file",
 	"log-opts": {
 		"max-size": "10m",
 		"max-file": "3"
 	}
-	}
-	EOF
+}
+EOF
 fi
