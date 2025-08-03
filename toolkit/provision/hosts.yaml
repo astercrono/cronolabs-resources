@@ -66,6 +66,7 @@ media:
     - debian/baseline
     - debian/docker
     - debian/komodo-periphery
+    - debian/intel-gpu
 net:
   hostname: 192.168.1.100
   description: Network Utilities
