@@ -21,9 +21,9 @@ db:
   parent: wizard2
   type: lxc
   templates: 
-    - debian/baseline
-    - debian/docker
-    - debian/komodo-periphery
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo-periphery
 forge:
   description: Proxmox Node. Optiplex  3020
   hostname: 192.168.1.2
@@ -37,12 +37,12 @@ game1:
   parent: halcyon
   type: lxc
   templates: 
-    - debian/baseline
-    - debian/docker
-    - debian/komodo-periphery
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo-periphery
 halcyon:
   description: Proxmox Node (HP EliteDesk)
-  hostname: 192.168.6.222
+  hostname: 192.168.1.222
   username: root
   type: hypervisor
   templates: 
@@ -53,9 +53,9 @@ komo:
   parent: wizard1
   type: lxc
   templates:
-    - debian/baseline
-    - debian/docker
-    - debian/komodo
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo
 media:
   hostname: 192.168.6.101
   description: Media Streaming
@@ -63,10 +63,9 @@ media:
   parent: orbital
   type: lxc
   templates: 
-    - debian/baseline
-    - debian/docker
-    - debian/komodo-periphery
-    - debian/intel-gpu
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo-periphery
 net:
   hostname: 192.168.1.100
   description: Network Utilities
@@ -74,19 +73,19 @@ net:
   parent: forge
   type: lxc
   templates: 
-    - debian/baseline
-    - debian/docker
-    - debian/komodo-periphery
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo-periphery
 game2:
-  hostname: 192.168.1.106
+  hostname: 192.168.1.103
   description: Game Hosting
   username: root
   parent: wizard2
   type: lxc
   templates: 
-    - debian/baseline
-    - debian/docker
-    - debian/komodo-periphery
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo-periphery
 orbital:
   description: Proxmox Node (HP ProDesk)
   hostname: 192.168.1.27
@@ -100,9 +99,9 @@ rcv:
   parent: wizard1
   type: lxc
   templates: 
-    - debian/baseline
-    - debian/docker
-    - debian/komodo-periphery
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo-periphery
 wizard1:
   description: Proxmox Node (Optiplex 3050)
   hostname: 192.168.1.242
@@ -115,3 +114,12 @@ wizard2:
   username: root
   type: hypervisor
   templates: 
+content:
+  description: Content hosting
+  hostname: 192.168.1.106
+  username: root
+  type: lxc
+  templates: 
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo-periphery
