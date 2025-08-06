@@ -77,7 +77,7 @@ net:
     - debian/lxc/docker
     - debian/lxc/komodo-periphery
 game2:
-  hostname: 192.168.1.103
+  hostname: 192.168.6.103
   description: Game Hosting
   username: root
   parent: wizard2
@@ -117,6 +117,15 @@ wizard2:
 content:
   description: Content hosting
   hostname: 192.168.1.106
+  username: root
+  type: lxc
+  templates: 
+    - debian/lxc/baseline
+    - debian/lxc/docker
+    - debian/lxc/komodo-periphery
+src:
+  description: Source Code Management
+  hostname: 192.168.1.107
   username: root
   type: lxc
   templates: 
