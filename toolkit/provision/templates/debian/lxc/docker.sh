@@ -5,11 +5,11 @@ set -o pipefail
 
 if ! command -v docker &>/dev/null; then
 	# Add Docker's official GPG key:
-	sudo apt-get update -y
-	sudo apt-get install -y ca-certificates curl
-	sudo install -m 0755 -d /etc/apt/keyrings
-	sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-	sudo chmod a+r /etc/apt/keyrings/docker.asc
+	apt-get update -y
+	apt-get install -y ca-certificates curl
+	install -m 0755 -d /etc/apt/keyrings
+	curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+	chmod a+r /etc/apt/keyrings/docker.asc
 
 	# Add the repository to Apt sources
 	docker_source_list="/etc/apt/sources.list.d/docker.list"
@@ -20,8 +20,8 @@ if ! command -v docker &>/dev/null; then
 			sudo tee "$docker_source_list" >/dev/null
 	fi
 
-	sudo apt-get update -y
-	sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	apt-get update -y
+	apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 	# Enable log rotation
 	cat >"/etc/docker/daemon.json" <<EOF
